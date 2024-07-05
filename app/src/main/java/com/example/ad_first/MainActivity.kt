@@ -16,6 +16,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
+import androidx.compose.material3.LocalTextStyle
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -30,12 +31,17 @@ import androidx.compose.ui.graphics.Color.Companion.Magenta
 import androidx.compose.ui.graphics.Color.Companion.Red
 import androidx.compose.ui.graphics.Color.Companion.White
 import androidx.compose.ui.graphics.Color.Companion.Yellow
+import androidx.compose.ui.text.PlatformTextStyle
 import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.LineHeightStyle
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.em
 import androidx.compose.ui.unit.sp
 import com.example.ad_first.ui.theme.Purple40
 import com.example.ad_first.ui.theme.Purple80
@@ -50,22 +56,32 @@ class MainActivity : ComponentActivity() {
             val Pink40 = Color(0xFF7D5260)
             Column (
                 modifier = Modifier
-                    .background(Black),
+                    .background(Cyan)
+                    .fillMaxSize()
+                    .padding(30.dp),
                 verticalArrangement =  Arrangement.spacedBy(30.dp),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-
+                //Day 7
 //            First()
 //            Second()
 //            Third()
 //            Fourth()
 //            Fifth ()
 //            Grad()
-                AlignTry1()
-                Greeting(name = "Prakash")
-                //Button(onClick = println("Hello")) {}
-               Text(text = "--------------------" , color = Magenta , fontSize = 40.sp)
-                AlignTry2()
+                CenterText()
+                ParagraphStyle()
+                lineheight(text = "This is a separate line text")
+
+                //Day 8
+
+//                AlignTry1()
+//                Greeting(name = "Prakash")
+//                //Button(onClick = println("Hello")) {}
+//               Text(text = "--------------------" , color = Magenta , fontSize = 40.sp)
+                 //AlignTry2()
+
+
             }
 
         }
@@ -203,6 +219,46 @@ fun Grad() {
     )
 }
 
+@Composable
+fun CenterText() {
+    Text(
+        "Hello World", textAlign = TextAlign.Center, modifier = Modifier.width(150.dp)
+    )
+}
+@Composable
+fun ParagraphStyle() {
+    Text(
+        buildAnnotatedString {
+            withStyle(style = androidx.compose.ui.text.ParagraphStyle(lineHeight = 30.sp)) {
+                withStyle(style = SpanStyle(color = Color.Blue)) {
+                    append("Hello\n")
+                }
+                withStyle(
+                    style = SpanStyle(
+                        fontWeight = FontWeight.Bold, color = Color.Red
+                    )
+                ) {
+                    append("World\n")
+                }
+                append("Compose")
+            }
+        }
+    )
+}
+@Composable
+fun lineheight(text : String){
+    Text(
+        text = (text), fontSize = 60.sp ,
+        style = LocalTextStyle.current.merge(
+            TextStyle(lineHeight = 2.5.em, platformStyle = PlatformTextStyle(includeFontPadding = false),
+                lineHeightStyle = LineHeightStyle(
+                    alignment = LineHeightStyle.Alignment.Center,
+                    trim = LineHeightStyle.Trim.None
+                )
+            )
+        )
+    )
+}
 @Composable
 fun AlignTry1() {
     val LightBlue = Color(0xFF0066FF)
