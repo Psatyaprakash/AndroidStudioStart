@@ -10,5 +10,7 @@
     <color name="Heavy">#133337</color>
     <color name="Green1">#d9e7cb</color>
     <color name="Blue1">#0e085e</color>
-    <color name="Green2">#1c2816</color>
+    <color name="Green2">#DAFFE9</color>
+    <color name="Green3">#EEF3F9</color>
+    <color name="L_Blue">#00639A</color>
 </resources>
