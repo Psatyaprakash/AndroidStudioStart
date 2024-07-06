@@ -1,7 +1,7 @@
 <h1>Android Devlopment</h1>
 <p>Day 10 [Task 1]</p>
 <img src="Project_ss/Task1.png" height="600px">
-<br>
+<hr>
 <p>Day 9</p>
 <img src="Project_ss/Buttons.png" height=""  width="300px">
 <img src="Project_ss/Card.png" alt="" height=""  width="300px">
