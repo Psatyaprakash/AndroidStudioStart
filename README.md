@@ -1,29 +1,7 @@
 <h1>Android Devlopment</h1>
 
-<div class="row">
-  <div class="column">
-    <img src="Project_ss/Grid.png" alt="Snow" style="width:100%">
-  </div>
-  <div class="column">
-    <img src="Project_ss/List.png" alt="Forest" style="width:100%">
-  </div>
-</div>
-<style>
-.column {
-  float: left;
-  width: 33.33%;
-  padding: 5px;
-}
-
-/* Clear floats after image containers */
-.row::after {
-  content: "";
-  clear: both;
-  display: table;
-}
-</style>
 <h2> Day 11 </h2>
-<img src="c" height="600px">
+<img src="Project_ss/Grid.png" height="600px">
 <img src="Project_ss/List.png" height="600px">
 <hr>
 <p>Day 10 [Task 1]</p>
