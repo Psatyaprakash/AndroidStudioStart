@@ -386,7 +386,9 @@ fun Second() {
         var showAlert by remember {
             mutableStateOf(false)
         }
-        Column(modifier = Modifier.padding(innerPadding)) {
+        Column(modifier = Modifier
+            .padding(innerPadding)
+            .background(colorResource(id = R.color.Green2))) {
 
             var itemsList = List(5) { "Shopping item : ${it + 1}" }
             Column(
