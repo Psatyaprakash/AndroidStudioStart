@@ -1,5 +1,13 @@
 <h1>Android Devlopment</h1>
+<br>
+<h3> Each day works are kept in respective branch <br> Master branch contains the latest work <br> All the images are stored in the ss_projects directory <br>  </h3>
+<h2> Thank you </h2>
+<hr>
+<br><br><br>
 
+<p>Day 12</p>
+<img src="Project_ss/mvvm_generics.png" height="600px">
+<hr>
 <h2> Day 11 </h2>
 <img src="Project_ss/Grid.png" height="600px">
 <img src="Project_ss/List.png" height="600px">
