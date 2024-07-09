@@ -55,7 +55,7 @@ class MainActivity : ComponentActivity() {
                         Spacer(modifier = Modifier.height(10.dp))
                         Text("String:${stringContent.content}" , fontSize = 20.sp)
                         Spacer(modifier = Modifier .height(10.dp))
-                        PrintContent(content =  "Its goin good" )
+                        PrintContent(content =  "Its going good" )
                     }
 
             }
@@ -89,7 +89,7 @@ fun CounterView(counterVM: CounterViewModel = viewModel()){
 }
 @Composable
 fun<T> PrintContent(content: T){
-    Text("Someone said ${content} Toh thik hai", fontSize = 20.sp)
+    Text("Someone said $content Toh thik hai", fontSize = 20.sp)
 }
 data class Counter(val count:Int)
 //data class User(val username:String, val password:String)
