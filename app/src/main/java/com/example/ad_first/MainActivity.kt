@@ -11,20 +11,15 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Button
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.focus.focusModifier
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -60,7 +55,7 @@ class MainActivity : ComponentActivity() {
                         Spacer(modifier = Modifier.height(10.dp))
                         Text("String:${stringContent.content}" , fontSize = 20.sp)
                         Spacer(modifier = Modifier .height(10.dp))
-                        printContent(content = "Its goin good" )
+                        PrintContent(content =  "Its goin good" )
                     }
 
             }
@@ -93,11 +88,11 @@ fun CounterView(counterVM: CounterViewModel = viewModel()){
     }
 }
 @Composable
-fun<T> printContent(content: T){
+fun<T> PrintContent(content: T){
     Text("Someone said ${content} Toh thik hai", fontSize = 20.sp)
 }
 data class Counter(val count:Int)
-data class User(val username:String, val password:String)
+//data class User(val username:String, val password:String)
 
 class CounterViewModel: ViewModel(){
     private val _counter= mutableStateOf(Counter(0))
