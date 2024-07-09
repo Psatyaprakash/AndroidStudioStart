@@ -74,10 +74,14 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavController
 import androidx.navigation.NavHost
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
+import androidx.lifecycle.viewmodel.compose.viewModel
 
 
 class MainActivity : ComponentActivity() {
@@ -86,11 +90,36 @@ class MainActivity : ComponentActivity() {
         //enableEdgeToEdge()
         setContent {
             //Start()
-            Second()
+            //Second()
             //Third()
+            //MainScreenContent()
 
-
+            AppNavigation()
         }
+    }
+}
+
+//View MVVM
+
+
+//Navigation
+@Composable
+fun AppNavigation(){
+    val navController = rememberNavController()
+
+    NavHost(navController = navController,
+        startDestination = "Start") {
+        composable("Start") { Start(navController) }
+        composable("Second/{data}" , arguments = listOf(navArgument("data") {type = NavType.StringType} )
+        ) { backStackEntry ->
+            Second(navController ,backStackEntry.arguments?.getString("data") ?: "" ) }
+        composable("Third") { Third(navController) }
+        /* composable("Screen4/{data}",
+            arguments = listOf(navArgument("data") { type = NavType.StringType })
+        ) { backStackEntry ->
+            Screen4(navController, backStackEntry.arguments?.getString("data") ?: "")
+        } */
+        composable("Start") { Start(navController) }
     }
 }
 
@@ -100,7 +129,7 @@ class MainActivity : ComponentActivity() {
 //Start Function
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Start(navController: NavController) {
+fun Start(navController: NavHostController) {
     var presses by remember { mutableIntStateOf(0) }
 
     Scaffold(
@@ -136,7 +165,7 @@ fun Start(navController: NavController) {
             }
         },
         floatingActionButton = {
-            FloatingActionButton(onClick = { presses++ }) {
+            FloatingActionButton(onClick = { navController.navigate("Second") }) {
                 Box(modifier = Modifier
                     .background(colorResource(id = R.color.Green3))
                     .size(60.dp) ,
@@ -169,7 +198,7 @@ fun Start(navController: NavController) {
                 modifier = Modifier
                     .padding(10.dp)
             ) {
-                Firstcard()
+                Firstcard(navController)
             }
 
 
@@ -180,7 +209,7 @@ fun Start(navController: NavController) {
     }
 }
 @Composable
-fun Firstcard() {
+fun Firstcard(navController: NavHostController) {
     Column {
         ElevatedCard(
             elevation = CardDefaults.cardElevation(
@@ -280,7 +309,7 @@ fun Firstcard() {
                         color = colorResource(id = R.color.teal_700)
                     )
 
-                    Button(onClick = { println("Login") } ,
+                    Button(onClick = { navController.navigate("Second/${text.trim()} ") } ,
                         colors = ButtonDefaults.buttonColors(
                             containerColor = colorResource(id = R.color.L_Blue)
                         ),
@@ -314,7 +343,7 @@ fun Firstcard() {
 //Second page start
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Second() {
+fun Second(navController: NavHostController, data : String) {
     Scaffold(
         topBar = {
             TopAppBar(
@@ -354,7 +383,7 @@ fun Second() {
                 .padding(20.dp),
                 horizontalArrangement = Arrangement.SpaceBetween
                 ){
-                FloatingActionButton(onClick = {  } ) {
+                FloatingActionButton(onClick = { navController.navigate("Start") } ) {
                     Box(modifier = Modifier
                         .background(colorResource(id = R.color.Green3))
                         .size(60.dp) ,
@@ -363,7 +392,7 @@ fun Second() {
                         Icon(Icons.Default.ArrowBack, contentDescription = "Prev")
                     }
                 }
-                FloatingActionButton(onClick = {  }) {
+                FloatingActionButton(onClick = { navController.navigate("Third") }) {
                     Box(modifier = Modifier
                         .background(colorResource(id = R.color.Green3))
                         .size(60.dp) ,
@@ -430,7 +459,7 @@ fun Second() {
                         Text(text = item , fontSize = 20.sp)
                     }
                 }
-
+                Text(text = "Username is : $data \n Password is : " , fontSize = 30.sp , fontWeight = FontWeight.ExtraBold)
                /* Button(onClick = { showBottomSheet = true }) {
                     Text(text = "Show Bottom Sheet")
                 }
@@ -484,7 +513,7 @@ fun AlertDialogExample() {
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Third() {
+fun Third(navController: NavHostController) {
     Scaffold(
         topBar = {
             TopAppBar(
@@ -524,7 +553,7 @@ fun Third() {
                 .padding(20.dp),
                 horizontalArrangement = Arrangement.SpaceBetween
             ){
-                FloatingActionButton(onClick = {  } ) {
+                FloatingActionButton(onClick = { navController.navigate("Second") } ) {
                     Box(modifier = Modifier
                         .background(colorResource(id = R.color.Green3))
                         .size(60.dp) ,
@@ -533,7 +562,7 @@ fun Third() {
                         Icon(Icons.Default.ArrowBack, contentDescription = "Prev")
                     }
                 }
-                FloatingActionButton(onClick = {  }) {
+                FloatingActionButton(onClick = { navController.navigate("Start") }) {
                     Box(modifier = Modifier
                         .background(colorResource(id = R.color.Green3))
                         .size(60.dp) ,
@@ -590,3 +619,14 @@ fun Third() {
 }
 
 //Third page end
+
+/*
+@Suppress(names = {"MissingJvmstatic"})
+@Composable
+public inline fun <reified VM : ViewModel> viewModel(
+    viewModelStoreOwner: ViewModelStoreOwner = checkNotNull(LocalViewModelStoreOwner. current) {         "No ViewModelStoreOwner was provided via LocalViewModelStoreOwner"     },
+    key: String? = null,
+    factory: ViewModelProvider. Factory? = null,
+    extras: CreationExtras = if (viewModelStoreOwner is HasDefaultViewModelProviderFactory) {         viewModelStoreOwner. defaultViewModelCreationExtras     } else {         CreationExtras. Empty     }
+): VM
+ */
