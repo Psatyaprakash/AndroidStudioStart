@@ -33,7 +33,12 @@ class MainActivity : ComponentActivity() {
         //enableEdgeToEdge()
         setContent {
             val productVM: ProductVieModel by viewModels()
-                Row(modifier=Modifier.background(Color.Black).fillMaxSize(),horizontalArrangement = Arrangement.Center, verticalAlignment = Alignment.CenterVertically){
+                Row(modifier=Modifier
+                    .background(Color.Black)
+                    .fillMaxSize(),
+                    horizontalArrangement = Arrangement.Center,
+                    verticalAlignment = Alignment.CenterVertically
+                ){
                     Button(onClick = {productVM.fetchProducts()}) {
                         Text("Click to show data on logcat", color = Color.White)
                     }
