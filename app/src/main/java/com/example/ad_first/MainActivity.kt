@@ -1,31 +1,30 @@
 package com.example.ad_first
 
 
-import android.graphics.Paint
+
+//import retrofit.GsonConverterFactory
+import android.media.Rating
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.viewModels
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.State
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.colorResource
-import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
+import androidx.compose.ui.graphics.Color
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.launch
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.http.GET
 
 
 class MainActivity : ComponentActivity() {
@@ -33,80 +32,66 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         //enableEdgeToEdge()
         setContent {
-
-            Column(
-                Modifier
-                    .fillMaxSize()
-                    .background(colorResource(id = R.color.Green2)),
-                horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.Center
-
-            ){
-                Text(text = "MVVM architecture And Generics in Jetpack\n" ,
-                    fontSize = 50.sp, textAlign = TextAlign.Center , )
-                CounterView()
-                val intContent = GenericClass(712)
-                val stringContent = GenericClass("July")
-
-                    Column(horizontalAlignment = Alignment.CenterHorizontally,
-                        verticalArrangement = Arrangement.Center){
-                        Spacer(modifier=Modifier.height(10.dp))
-                        Text("Integer value:${intContent.content}  ", fontSize = 20.sp)
-                        Spacer(modifier = Modifier.height(10.dp))
-                        Text("String:${stringContent.content}" , fontSize = 20.sp)
-                        Spacer(modifier = Modifier .height(10.dp))
-                        PrintContent(content =  "Its going good" )
+            val productVM: ProductVieModel by viewModels()
+                Row(modifier=Modifier
+                    .background(Color.Black)
+                    .fillMaxSize(),
+                    horizontalArrangement = Arrangement.Center,
+                    verticalAlignment = Alignment.CenterVertically
+                ){
+                    Button(onClick = {productVM.fetchProducts()}) {
+                        Text("Click to show data on logcat", color = Color.White)
                     }
-
-            }
-
+                }
         }
     }
 }
-
-
-//View MVVM
-@Composable
-fun CounterView(counterVM: CounterViewModel = viewModel()){
-    val counterState=counterVM.counter.value
-    Column(horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center){
-
-        Text(text="Current Counter value: ${counterState.count}" , fontSize = 30.sp)
-        Row{
-            Button(onClick = {counterVM.increment()}){
-                Text("Increment")
+data class Product(
+    val id: Int,
+    val title: String,
+    val price: Double,
+    val description: String,
+    val category: String,
+    val image: String,
+    val rating: Rating
+)
+data class Rating(
+    val rate: Double,
+    val count: Int
+)
+interface ApiService{
+    @GET("Products")
+    suspend fun getProducts(): List<Product>
+}
+object RetrofitClient{
+    private const val BASE_URL="https://fakestoreapi.com/"
+    val apiService:ApiService by lazy{
+        Retrofit.Builder()
+            .baseUrl(BASE_URL)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+            .create(ApiService::class.java)
+    }
+}
+class ProductRepository(private val apiService: ApiService){
+    suspend fun getProducts(): List<Product>{
+        return apiService.getProducts()
+    }
+}
+class ProductVieModel: ViewModel(){
+    private val _products=MutableLiveData<List<Product>>()
+    val products: LiveData<List<Product>>get()= _products
+    private val repository=ProductRepository(RetrofitClient.apiService)
+    fun fetchProducts(){
+        viewModelScope.launch {
+            try {
+                val productList=repository.getProducts()
+                _products.postValue(productList)
+                println("API DATA CALLED: $productList")
             }
-            Spacer(modifier = Modifier.width(10.dp))
-            Button(onClick = {counterVM.decrement()}){
-                Text("Decrement")
+            catch(e:Exception){
+                println("Error: $e")
             }
         }
-        Button(onClick = {counterVM.resetValue()}){
-            Text("Reset")
-        }
     }
 }
-@Composable
-fun<T> PrintContent(content: T){
-    Text("Someone said $content Toh thik hai", fontSize = 20.sp)
-}
-data class Counter(val count:Int)
-//data class User(val username:String, val password:String)
-
-class CounterViewModel: ViewModel(){
-    private val _counter= mutableStateOf(Counter(0))
-    val counter: State<Counter> = _counter
-    fun increment(){
-        _counter.value = Counter(_counter.value.count+1)
-    }
-    fun decrement(){
-        _counter.value=Counter(_counter.value.count -1)
-    }
-    fun resetValue(){
-        _counter.value=Counter(0)
-    }
-}
-
-class GenericClass<T>(var content: T)
-

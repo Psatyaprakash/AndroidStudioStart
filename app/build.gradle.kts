@@ -52,7 +52,7 @@ android {
 }
 
 dependencies {
-    //val nav_version = "2.7.7"
+//    val nav_version = "2.7.7"
     implementation (libs.androidx.navigation.compose)
     implementation(libs.androidx.activity.compose)
     implementation(platform(libs.androidx.compose.bom))
@@ -74,5 +74,10 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.v2110)
+    implementation(libs.converter.gson.v2110)
+    implementation(libs.gson)
 
 }
