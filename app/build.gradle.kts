@@ -67,6 +67,7 @@ dependencies {
     implementation(libs.androidx.material3)
     implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.navigation.runtime.ktx)
+    implementation(libs.androidx.runtime.livedata)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -79,5 +80,7 @@ dependencies {
     implementation(libs.retrofit.v2110)
     implementation(libs.converter.gson.v2110)
     implementation(libs.gson)
+
+    implementation(libs.coil.compose)
 
 }
