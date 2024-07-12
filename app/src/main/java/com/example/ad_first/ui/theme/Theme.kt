@@ -1,6 +1,5 @@
 package com.example.ad_first.ui.theme
 
-import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
@@ -49,6 +48,7 @@ fun AD_FirstTheme(
         darkTheme -> DarkColorScheme
         else -> LightColorScheme
     }
+
 
     MaterialTheme(
         colorScheme = colorScheme,
