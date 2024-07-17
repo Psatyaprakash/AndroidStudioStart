@@ -1,8 +1,12 @@
 package com.example.ad_first
 
+
+
+//import retrofit.GsonConverterFactory
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -42,11 +46,20 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.google.firebase.auth.FirebaseAuth
 
+import androidx.activity.viewModels
+import androidx.compose.material3.ExperimentalMaterial3Api
+import com.example.ad_first.View.MainScreen
+import com.example.ad_first.ViewModel.ProductViewModel
+
+
+
 class MainActivity : ComponentActivity() {
+    @OptIn(ExperimentalMaterial3Api::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //enableEdgeToEdge()
         setContent {
+
             ScaffoldExample()
                 //loginScreen()
 
@@ -246,8 +259,14 @@ class MainActivity : ComponentActivity() {
                     id = R.color.teal_700) )
             }
 
+
+                val productVM: ProductViewModel by viewModels()
+                MainScreen(productVM)
+
+
         }
     }
+
 
 
 
@@ -321,3 +340,4 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
+
