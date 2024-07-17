@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "905647591253",
+    "project_id": "adfirst-07",
+    "storage_bucket": "adfirst-07.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:905647591253:android:86ec683f48500c93dde9dc",
+        "android_client_info": {
+          "package_name": "com.example.ad_first"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_3hciMADH_bCcL0V-ls6Km6fW8bOIOaQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
