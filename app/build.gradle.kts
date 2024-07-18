@@ -63,6 +63,7 @@ dependencies {
     implementation(libs.androidx.material3)
     implementation(libs.firebase.auth.ktx)
     implementation(libs.androidx.navigation.fragment)
+    implementation(libs.firebase.firestore.ktx)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
@@ -75,10 +76,10 @@ dependencies {
 
     val nav_version = "2.7.7"
 
-    implementation("androidx.navigation:navigation-compose:$nav_version")
+    implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
 
-    implementation(platform(libs.firebase.bom))
-    implementation(libs.firebase.analytics)
+    implementation (platform(libs.firebase.bom))
+    implementation (libs.google.firebase.auth.ktx)
 }
