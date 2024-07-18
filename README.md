@@ -5,6 +5,12 @@
 <hr>
 <br>
 
+<p>Day 17</p>
+<img src="Project_ss/FireStore_Collection.png" height="600px">
+<hr>
+<p>Day 15 - Day 16</p>
+<img src="Project_ss/FireStore_OTP.png" height="600px">
+<hr>
 <p>Day 14</p>
 <img src="Project_ss/Day14.png" height="600px">
 <hr>
