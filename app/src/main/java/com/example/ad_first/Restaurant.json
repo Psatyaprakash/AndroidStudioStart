@@ -1,0 +1,290 @@
+[
+  {
+    "restaurant": {
+      "name": "Tasty Bites Restaurant",
+      "location": {
+        "address": "123 Main Street",
+        "city": "Anytown",
+        "state": "CA",
+        "zipcode": "12345",
+        "country": "USA"
+      },
+      "contact": {
+        "phone": "+1-123-456-7890",
+        "email": "info@tastybites.com"
+      },
+      "menu": [
+        {
+          "category": "Starters",
+          "items": [
+            {
+              "name": "Garlic Bread",
+              "price": 5.99,
+              "images": [
+                "https://example.com/images/tastybites/garlic_bread.jpg"
+              ]
+            },
+            {
+              "name": "Caesar Salad",
+              "price": 8.99,
+              "images": [
+                "https://example.com/images/tastybites/caesar_salad.jpg"
+              ]
+            }
+          ]
+        },
+        {
+          "category": "Main Course",
+          "items": [
+            {
+              "name": "Spaghetti Carbonara",
+              "price": 14.99,
+              "images": [
+                "https://example.com/images/tastybites/spaghetti_carbonara.jpg"
+              ]
+            },
+            {
+              "name": "Grilled Salmon",
+              "price": 18.99,
+              "images": [
+                "https://example.com/images/tastybites/grilled_salmon.jpg"
+              ]
+            }
+          ]
+        },
+        {
+          "category": "Desserts",
+          "items": [
+            {
+              "name": "Tiramisu",
+              "price": 6.99,
+              "images": [
+                "https://example.com/images/tastybites/tiramisu.jpg"
+              ]
+            },
+            {
+              "name": "Chocolate Cake",
+              "price": 7.99,
+              "images": [
+                "https://example.com/images/tastybites/chocolate_cake.jpg"
+              ]
+            }
+          ]
+        }
+      ],
+      "opening_hours": {
+        "Monday": "11:00 AM - 9:00 PM",
+        "Tuesday": "11:00 AM - 9:00 PM",
+        "Wednesday": "11:00 AM - 9:00 PM",
+        "Thursday": "11:00 AM - 9:00 PM",
+        "Friday": "11:00 AM - 10:00 PM",
+        "Saturday": "12:00 PM - 10:00 PM",
+        "Sunday": "Closed"
+      },
+      "reviews": [
+        {
+          "user": "John Doe",
+          "rating": 4.5,
+          "comment": "Great food and friendly service!"
+        },
+        {
+          "user": "Jane Smith",
+          "rating": 5,
+          "comment": "My favorite restaurant in town. Highly recommended!"
+        }
+      ]
+    }
+  },
+  {
+    "restaurant": {
+      "name": "Spice & Flavor",
+      "location": {
+        "address": "456 Oak Avenue",
+        "city": "Somewhere",
+        "state": "NY",
+        "zipcode": "54321",
+        "country": "USA"
+      },
+      "contact": {
+        "phone": "+1-987-654-3210",
+        "email": "spiceflavor@email.com"
+      },
+      "menu": [
+        {
+          "category": "Appetizers",
+          "items": [
+            {
+              "name": "Samosa",
+              "price": 4.99,
+              "images": [
+                "https://example.com/images/spiceflavor/samosa.jpg"
+              ]
+            },
+            {
+              "name": "Chicken Tikka",
+              "price": 9.99,
+              "images": [
+                "https://example.com/images/spiceflavor/chicken_tikka.jpg"
+              ]
+            }
+          ]
+        },
+        {
+          "category": "Main Course",
+          "items": [
+            {
+              "name": "Butter Chicken",
+              "price": 15.99,
+              "images": [
+                "https://example.com/images/spiceflavor/butter_chicken.jpg"
+              ]
+            },
+            {
+              "name": "Vegetable Biryani",
+              "price": 12.99,
+              "images": [
+                "https://example.com/images/spiceflavor/vegetable_biryani.jpg"
+              ]
+            }
+          ]
+        },
+        {
+          "category": "Desserts",
+          "items": [
+            {
+              "name": "Gulab Jamun",
+              "price": 5.99,
+              "images": [
+                "https://example.com/images/spiceflavor/gulab_jamun.jpg"
+              ]
+            },
+            {
+              "name": "Rasmalai",
+              "price": 6.99,
+              "images": [
+                "https://example.com/images/spiceflavor/rasmalai.jpg"
+              ]
+            }
+          ]
+        }
+      ],
+      "opening_hours": {
+        "Monday": "12:00 PM - 8:00 PM",
+        "Tuesday": "12:00 PM - 8:00 PM",
+        "Wednesday": "Closed",
+        "Thursday": "12:00 PM - 8:00 PM",
+        "Friday": "12:00 PM - 9:00 PM",
+        "Saturday": "12:00 PM - 9:00 PM",
+        "Sunday": "11:00 AM - 7:00 PM"
+      },
+      "reviews": [
+        {
+          "user": "David Johnson",
+          "rating": 4.2,
+          "comment": "Delicious Indian food, loved the flavors!"
+        },
+        {
+          "user": "Emily Chen",
+          "rating": 4.8,
+          "comment": "Best butter chicken I've ever had."
+        }
+      ]
+    }
+  },
+  {
+    "restaurant": {
+      "name": "Pizza Palace",
+      "location": {
+        "address": "789 Broadway",
+        "city": "Pizza Town",
+        "state": "IL",
+        "zipcode": "67890",
+        "country": "USA"
+      },
+      "contact": {
+        "phone": "+1-555-123-4567",
+        "email": "info@pizzapalace.com"
+      },
+      "menu": [
+        {
+          "category": "Appetizers",
+          "items": [
+            {
+              "name": "Garlic Knots",
+              "price": 3.99,
+              "images": [
+                "https://example.com/images/pizzapalace/garlic_knots.jpg"
+              ]
+            },
+            {
+              "name": "Mozzarella Sticks",
+              "price": 5.99,
+              "images": [
+                "https://example.com/images/pizzapalace/mozzarella_sticks.jpg"
+              ]
+            }
+          ]
+        },
+        {
+          "category": "Pizzas",
+          "items": [
+            {
+              "name": "Margherita Pizza",
+              "price": 12.99,
+              "images": [
+                "https://example.com/images/pizzapalace/margherita_pizza.jpg"
+              ]
+            },
+            {
+              "name": "Meat Lovers Pizza",
+              "price": 15.99,
+              "images": [
+                "https://example.com/images/pizzapalace/meat_lovers_pizza.jpg"
+              ]
+            }
+          ]
+        },
+        {
+          "category": "Desserts",
+          "items": [
+            {
+              "name": "Tiramisu",
+              "price": 6.99,
+              "images": [
+                "https://example.com/images/pizzapalace/tiramisu.jpg"
+              ]
+            },
+            {
+              "name": "Cannoli",
+              "price": 4.99,
+              "images": [
+                "https://example.com/images/pizzapalace/cannoli.jpg"
+              ]
+            }
+          ]
+        }
+      ],
+      "opening_hours": {
+        "Monday": "11:00 AM - 9:00 PM",
+        "Tuesday": "11:00 AM - 9:00 PM",
+        "Wednesday": "11:00 AM - 9:00 PM",
+        "Thursday": "11:00 AM - 9:00 PM",
+        "Friday": "11:00 AM - 10:00 PM",
+        "Saturday": "12:00 PM - 10:00 PM",
+        "Sunday": "Closed"
+      },
+      "reviews": [
+        {
+          "user": "Sarah Thompson",
+          "rating": 4.5,
+          "comment": "Great pizza and fast service!"
+        },
+        {
+          "user": "Michael Davis",
+          "rating": 4.2,
+          "comment": "Good variety of toppings and crust options."
+        }
+      ]
+    }
+  }
+]

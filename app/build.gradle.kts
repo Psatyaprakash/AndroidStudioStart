@@ -80,7 +80,7 @@ dependencies {
     implementation(libs.retrofit.v2110)
     implementation(libs.converter.gson.v2110)
     implementation(libs.gson)
-
+    implementation (libs.retrofit.vinsertlatestversion)
     implementation(libs.coil.compose)
 
 }

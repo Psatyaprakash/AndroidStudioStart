@@ -18,9 +18,8 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         //enableEdgeToEdge()
         setContent {
-
-                val productVM: ProductViewModel by viewModels()
-                MainScreen(productVM)
+            val productVM: ProductViewModel by viewModels()
+            MainScreen(productVM)
 
         }
     }

@@ -5,26 +5,26 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.ad_first.Model.API.RetrofitClient
-import com.example.ad_first.Model.Data.Product
+import com.example.ad_first.Model.Data.Restaurant
 import com.example.ad_first.Model.Repository.ProductRepository
 import kotlinx.coroutines.launch
 
 class ProductViewModel: ViewModel(){
-    private val _products= MutableLiveData<List<Product>>()
-    val products: LiveData<List<Product>>
-        get()= _products
+    private val _restaurant= MutableLiveData<List<Restaurant>>()
+    val restaurants: LiveData<List<Restaurant>>
+        get()= _restaurant
     private val repository= ProductRepository(RetrofitClient.apiService)
 
     init {
-        fetchProducts()
+        fetchRestaurants()
     }
 
-    fun fetchProducts(){
+    fun fetchRestaurants(){
         viewModelScope.launch {
             try {
-                val productList=repository.getProducts()
-                _products.postValue(productList)
-                println("API DATA CALLED: $productList")
+                val restaurantList=repository.getRestaurants()
+                _restaurant.postValue(restaurantList)
+                println("API DATA CALLED: $restaurantList")
             }
             catch(e:Exception){
                 println("Error: $e")
