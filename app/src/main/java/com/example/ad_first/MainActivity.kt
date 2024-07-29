@@ -8,8 +8,10 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.compose.material3.ExperimentalMaterial3Api
-import com.example.ad_first.View.MainScreen
-import com.example.ad_first.ViewModel.ProductViewModel
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
+import com.example.ad_first.View.RestaurantScreen
+import com.example.ad_first.ViewModel.RestaurantViewModel
 
 
 class MainActivity : ComponentActivity() {
@@ -18,9 +20,12 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         //enableEdgeToEdge()
         setContent {
-            val productVM: ProductViewModel by viewModels()
-            MainScreen(productVM)
-
+            val restaurantVM: RestaurantViewModel by viewModels()
+            Surface(
+                color = MaterialTheme.colorScheme.background
+            ) {
+                RestaurantScreen(restaurantVM)
+            }
         }
     }
 }

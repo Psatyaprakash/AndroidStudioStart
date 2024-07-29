@@ -82,5 +82,30 @@ dependencies {
     implementation(libs.gson)
     implementation (libs.retrofit.vinsertlatestversion)
     implementation(libs.coil.compose)
+    implementation (libs.kotlinx.coroutines.core)
+    implementation (libs.kotlinx.coroutines.android)
 
+    implementation (libs.ui)
+    implementation (libs.androidx.material)
+    implementation (libs.ui.tooling.preview)
+
+//    val lifecycle_version = "2.8.4"
+//    val arch_version = "2.2.0"
+
+    // ViewModel
+    implementation(libs.androidx.lifecycle.viewmodel.ktx.v284)
+    // ViewModel utilities for Compose
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
+    // LiveData
+    implementation(libs.androidx.lifecycle.livedata.ktx)
+    // Lifecycles only (without ViewModel or LiveData)
+    implementation(libs.androidx.lifecycle.runtime.ktx.v284)
+    // Lifecycle utilities for Compose
+    implementation(libs.androidx.lifecycle.runtime.compose)
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.v2110)
+    implementation(libs.converter.gson.v2110)
+    implementation(libs.gson)
+
+    implementation(libs.coil.compose)
 }
